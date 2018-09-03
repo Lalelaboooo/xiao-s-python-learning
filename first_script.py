@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 #!/user/bin/env python3
 #for the function exp, log, sqrt int the math liberiry
 from math import exp, log, sqrt
@@ -490,7 +491,7 @@ finally:
 #print("Output #143: ")
 #filereader = open(input_file,'r')
 #for row in filereader:
-#	print(row.strip)
+#	print(row.strip())
 #filereader.close()
 
 ##new ways to read a file
@@ -501,9 +502,38 @@ finally:
 #		print("{}".format(row.strip()))
 
 #read multiple files
-print("Output #145: ")
-inputPath = sys.argv[1]
-for input_file in glob.glob(os.path.join(inputPath,'*.txt')):
-	with open(input_file,'r', newline='') as filereader:
-		for row in filereader:
-			print("{}".format(row.strip()))
+#print("Output #145: ")
+#inputPath = sys.argv[1]
+#for input_file in glob.glob(os.path.join(inputPath,'*.txt')):
+#	with open(input_file,'r') as filereader:
+#		for row in filereader:
+#			print("{}".format(row.strip()))
+	
+#write in file
+#write in the txt file
+my_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+max_index = len(my_letters)
+output_file = sys.argv[1]
+filewriter = open(output_file, 'w')
+for index_value in range(len(my_letters)):
+	if index_value < (max_index - 1):
+		filewriter.write(my_letters[index_value]+'\t')
+	else:
+		filewriter.write(my_letters[index_value]+'\n')
+filewriter.close()
+print("Output #146:Output written to file")
+
+#write into CSV file
+my_numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+max_index = len(my_numbers)
+output_file = sys.argv[1]
+filewriter = open(output_file, 'a')
+for index_value in range(len(my_numbers)):
+	if index_value < (max_index - 1):
+		filewriter.write(str(my_numbers[index_value])+',')
+	else:
+		filewriter.write(str(my_numbers[index_value])+'\n')
+
+filewriter.close()
+print("Output #147: Output append to file")
+
